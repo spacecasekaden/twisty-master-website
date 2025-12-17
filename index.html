@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twisty Puzzle Master</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="cube-loader">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+        </div>
+        <p class="loading-text">Loading Puzzles...</p>
+    </div>
+
+    <div id="game-container">
+        <canvas id="puzzle-canvas"></canvas>
+        
+        <header id="top-bar">
+            <div class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">TWISTY MASTER</span>
+            </div>
+            <div class="timer-display">
+                <span class="timer-label">TIME</span>
+                <span id="timer">00:00.00</span>
+            </div>
+            <div class="moves-display">
+                <span class="moves-label">MOVES</span>
+                <span id="moves">0</span>
+            </div>
+        </header>
+
+        <aside id="puzzle-selector">
+            <h2>SELECT PUZZLE</h2>
+            <div class="puzzle-categories">
+                <div class="category">
+                    <h3>CUBES</h3>
+
+                    <button class="puzzle-btn active" data-puzzle="cube" data-size="3">
+                        <div class="btn-icon cube-icon"></div>
+                        <span>Rubik's Cube</span>
+                    </button>
+                </div>
+                
+                <div class="category">
+                    <h3>OTHER SHAPES</h3>
+                    <button class="puzzle-btn" data-puzzle="pyraminx">
+                        <div class="btn-icon pyramid-icon"></div>
+                        <span>Pyraminx</span>
+                    </button>
+                    <button class="puzzle-btn" data-puzzle="megaminx">
+                        <div class="btn-icon dodeca-icon"></div>
+                        <span>Megaminx</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <aside id="controls-panel">
+            <h2>CONTROLS</h2>
+            <div class="control-buttons">
+                <button id="scramble-btn" class="action-btn">
+                    <span class="btn-glow"></span>
+                    <span class="btn-content">🔀 SCRAMBLE</span>
+                </button>
+                <button id="reset-btn" class="action-btn">
+                    <span class="btn-glow"></span>
+                    <span class="btn-content">↺ RESET</span>
+                </button>
+                <button id="solve-btn" class="action-btn">
+                    <span class="btn-glow"></span>
+                    <span class="btn-content">✓ AUTO SOLVE</span>
+                </button>
+            </div>
+            
+            <div class="instructions">
+                <h3>HOW TO PLAY</h3>
+                <ul>
+                    <li><strong>Rotate View:</strong> Click + Drag</li>
+                    <li><strong>Turn Face:</strong> Click face + Drag</li>
+                    <li><strong>Zoom:</strong> Scroll wheel</li>
+                </ul>
+            </div>
+
+            <div class="keyboard-shortcuts">
+                <h3>KEYBOARD</h3>
+                <div class="key-grid">
+                    <div class="key-item"><kbd>U</kbd> Up</div>
+                    <div class="key-item"><kbd>D</kbd> Down</div>
+                    <div class="key-item"><kbd>L</kbd> Left</div>
+                    <div class="key-item"><kbd>R</kbd> Right</div>
+                    <div class="key-item"><kbd>F</kbd> Front</div>
+                    <div class="key-item"><kbd>B</kbd> Back</div>
+                </div>
+                <p class="key-hint">Hold SHIFT for counter-clockwise</p>
+            </div>
+        </aside>
+
+        <div id="solved-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="confetti"></div>
+                <h2>🎉 SOLVED! 🎉</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-label">Time</span>
+                        <span id="final-time" class="stat-value">00:00.00</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Moves</span>
+                        <span id="final-moves" class="stat-value">0</span>
+                    </div>
+                </div>
+                <button id="play-again-btn" class="action-btn large">
+                    <span class="btn-glow"></span>
+                    <span class="btn-content">PLAY AGAIN</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="game.js"></script>
+</body>
+</html>
+

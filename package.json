@@ -1,0 +1,13 @@
+{
+  "name": "rubixs-cube-game",
+  "version": "1.0.0",
+  "description": "3D Twisty Puzzle Game - Rubik's Cubes, Pyraminx, Megaminx",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": ["rubiks", "cube", "puzzle", "3d", "threejs"],
+  "license": "MIT"
+}
+
