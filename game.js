@@ -1012,25 +1012,7 @@ function setupEventListeners() {
         });
     });
     
-    // Size slider
-    const sizeSlider = document.getElementById('cube-size');
-    const sizeLabel = document.getElementById('cube-size-label');
-    
-    sizeSlider.addEventListener('input', (e) => {
-        const size = parseInt(e.target.value);
-        sizeLabel.textContent = `${size}×${size}×${size}`;
-    });
-    
-    sizeSlider.addEventListener('change', (e) => {
-        const size = parseInt(e.target.value);
-        state.cubeSize = size;
-        
-        // Activate cube button
-        document.querySelectorAll('.puzzle-btn').forEach(b => b.classList.remove('active'));
-        document.querySelector('[data-puzzle="cube"]').classList.add('active');
-        
-        createPuzzle('cube', size);
-    });
+
 }
 
 function onMouseDown(event) {
